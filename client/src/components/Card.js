@@ -3,7 +3,7 @@ import "./Card.css"
 import { Link } from "react-router-dom";
 
 function Card(props) {
-  console.log(props)
+  // console.log(props)
   return (
     <div className="flex flex-wrap my-16 mx-8">
     <div className="card">

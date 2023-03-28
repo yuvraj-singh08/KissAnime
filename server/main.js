@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const { addAnime, getAnime, getAllCharactersByAnimeId, addCharacter, addUser, isRegistered } = require('./functions');
+const { addAnime, getAnime, getAllCharactersByAnimeId, addCharacter, addUser, isRegistered, addToWatchList, getWatchList } = require('./functions');
 
 db_connect().catch((err) => { console.log(err); });
 
@@ -83,16 +83,45 @@ app.post('/api/user/validate', async (req, res) => {
 
     try {
         const response = await isRegistered(email, password);
+        if (response.length>0) {
+            res.status(200).json({ message: 'true',_id:response[0]._id });
+        }
+        else {
+            res.status(200).json({ message: 'false' });
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
+app.post('/api/user/addWatchList', async (req, res) => {
+    const { id, anime } = req.body;
+    try {
+        const response = await addToWatchList(id, anime);
         if (response) {
             res.status(200).json({ message: 'true' });
         }
         else {
             res.status(200).json({ message: 'false' });
         }
-    }catch (err) {
+    } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
+
+app.post('/api/user/getWatchList', async (req, res) => {
+    const { id } = req.body;
+    try {
+        const response = await getWatchList(id);
+        res.status(200).json({response});
+
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+})
 
 app.listen(3001);

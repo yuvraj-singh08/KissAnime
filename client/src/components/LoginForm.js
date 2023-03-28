@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
+  const navigate = useNavigate(); // initialize the useNavigate hook
+  const session = localStorage.getItem("sessionToken");
+  useEffect(() => {
+    if (session == "myToken") {
+      navigate('/home');
+      console.log("MKC navigate nahi hua");
+    }
+  });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isValid, setIsValid] = useState(false);
-  const navigate = useNavigate(); // initialize the useNavigate hook
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,8 +26,10 @@ function LoginForm() {
     const data = await response.json();
     setIsValid(data.message === "true");
     if (data.message === "true") {
+      console.log(data);
       localStorage.setItem("sessionToken", "myToken");
-      navigate("/"); // redirect to "/home" on successful login
+      localStorage.setItem("id", data._id);
+      navigate("/home"); // redirect to "/home" on successful login
     }
   };
 

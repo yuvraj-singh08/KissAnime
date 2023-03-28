@@ -42,7 +42,7 @@ const Header = () => {
           </li>
           <li className=" hover:text-black hover:px-4 rounded-md hover:cursor-pointer hover:font-semibold  hover:bg-white">
             {" "}
-            <a className="hover:text-black hover:no-underline" href="#">
+            <a className="hover:text-black hover:no-underline" href="/user/watchList">
               {" "}
               WATCH LIST{" "}
             </a>
@@ -52,7 +52,7 @@ const Header = () => {
               {" "}
               <a
                 className="hover:text-black hover:no-underline"
-                href="/authentication"
+                href="/"
               >
                 {" "}
                 Login/SignUp{" "}
@@ -66,7 +66,7 @@ const Header = () => {
               {" "}
               <a
                 className="hover:text-black hover:no-underline"
-                href="/authentication"
+                href="/"
               >
                 {" "}
                 Logout{" "}

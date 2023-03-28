@@ -5,6 +5,9 @@ import './App.css'
 
 function App(){
     const [animeList, setAnimeList] = useState([]);
+    console.log("id");
+    const id = sessionStorage.getItem('sessionToken');
+    console.log(id);
 
     useEffect(() => {
         fetch('http://localhost:3001/api/allAnime')

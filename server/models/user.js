@@ -16,7 +16,11 @@ const userSchema = new mongoose.Schema({
     imgSource: {
         type:String,
         required: false
-    }
+    },
+    watchList:[{
+        type:mongoose.Schema.Types.ObjectId,
+        required: false
+    }]
 });
 
 const user = mongoose.model('user', userSchema);

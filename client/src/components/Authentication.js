@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function Authentication() {
+    const session = localStorage.getItem("sessionToken");
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (session == "myToken") {
+            navigate('/home');
+            console.log("MKC navigate nahi hua");
+        }
+    });
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

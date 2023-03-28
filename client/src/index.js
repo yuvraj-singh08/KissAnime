@@ -9,40 +9,43 @@ import AddCharacterForm from './components/AddCharacterForm';
 import LoginForm from './components/LoginForm';
 import Layout from './components/Layout';
 import Authentication from './components/Authentication';
+import WatchList from './components/WatchList';
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <App />
+    path: '/home',
+    element: <Layout><App /></Layout>
   },
   {
     path: '/anime/:animeId',
-    element: <AnimePage />
+    element: <Layout><AnimePage /></Layout>
   },
   {
     path: '/anime/add',
-    element: <AddAnimeForm />
+    element: <Layout><AddAnimeForm /></Layout>
   },
   {
     path: '/characters/add',
-    element: <AddCharacterForm />
+    element: <Layout><AddCharacterForm /></Layout>
   },
   {
     path: '/login',
     element: <LoginForm />
   },
   {
-    path: '/authentication',
+    path: '/',
     element: <Authentication />
+  },
+  {
+    path:'/user/watchList',
+    element: <Layout><WatchList/></Layout>
   }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Layout>
       <RouterProvider router={router} />
-    </Layout>
   </React.StrictMode>
 );
 

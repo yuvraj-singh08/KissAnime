@@ -23,17 +23,17 @@ async function addAnime(name, description, src, para) {
 }
 
 async function addCharacter(name, description, source, Anime) {
-    
-    let temp = await getAnime({name:Anime},{_id : 1})
+
+    let temp = await getAnime({ name: Anime }, { _id: 1 })
     const id = temp[0]._id;
     console.log("Abdul");
     console.log(id);
 
     const character = new Character({
-        name:name,
-        description:description,
+        name: name,
+        description: description,
         src: source,
-        anime:id
+        anime: id
     });
 
     try {
@@ -42,13 +42,13 @@ async function addCharacter(name, description, source, Anime) {
     }
     catch (err) {
         console.log(err);
-    }   
+    }
 }
 
-async function getAnime(query,projection) {
+async function getAnime(query, projection) {
 
     try {
-        const result = await Anime.find(query,projection);
+        const result = await Anime.find(query, projection);
         console.log(result);
         return result;
     }
@@ -68,31 +68,55 @@ const getAllCharactersByAnimeId = async (req, res) => {
     }
 };
 
-async function addUser(name,email,password,imgSource){
-    const user = new User({name,email,password,imgSource});
+async function addUser(name, email, password, imgSource) {
+    const user = new User({ name, email, password, imgSource });
     try {
         const savedUser = await user.save();
         console.log(`Saved user: ${savedUser}`);
-    }catch(err){
+    } catch (err) {
         console.error(err);
     }
 }
 
-async function isRegistered(email,password){
-    try{
-        const result = await User.find({email: email,password: password});
-        if(result.length > 0){
-            return true;
+async function isRegistered(email, password) {
+    try {
+        const result = await User.find({ email: email, password: password },{_id:1});
+        if (result.length > 0) {
+            return result;
         }
-        else{
+        else {
             return false;
         }
-    } catch(err){
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+async function addToWatchList(id, anime) {
+    console.log(id, anime);
+    try {
+        await User.findOneAndUpdate({ _id: id },
+            { $push: { wathcList: anime } },
+            { new: true }
+        )
+            .then(updatedUser => console.log(updatedUser));
+        return true;
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+async function getWatchList(id) {
+    const projection = { watchList: 1, _id: 0 };
+    try {
+        const response = await User.find({ _id: id });//Getting error with projection
+        return response[0].watchList;
+    } catch (err) {
         console.error(err);
     }
 }
 
 module.exports = {
-    addAnime, getAnime, getAllCharactersByAnimeId, addCharacter, addUser, isRegistered
+    addAnime, getAnime, getAllCharactersByAnimeId, addCharacter, addUser, isRegistered, addToWatchList, getWatchList
 };
 
