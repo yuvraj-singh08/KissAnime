@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
     },
     watchList:[{
         type:mongoose.Schema.Types.ObjectId,
+        ref:'Anime',
         required: false
     }]
 });

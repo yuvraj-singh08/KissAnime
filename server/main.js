@@ -95,10 +95,10 @@ app.post('/api/user/validate', async (req, res) => {
     }
 });
 
-app.post('/api/user/addWatchList', async (req, res) => {
+app.post('/api/user/addWatchList',  (req, res) => {
     const { id, anime } = req.body;
     try {
-        const response = await addToWatchList(id, anime);
+        const response =  addToWatchList(id, anime);
         if (response) {
             res.status(200).json({ message: 'true' });
         }

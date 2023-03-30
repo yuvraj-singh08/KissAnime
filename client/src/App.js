@@ -6,7 +6,7 @@ import './App.css'
 function App(){
     const [animeList, setAnimeList] = useState([]);
     console.log("id");
-    const id = sessionStorage.getItem('sessionToken');
+    const id = localStorage.getItem('id');
     console.log(id);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ function App(){
              <div className="flex justify-evenly flex-wrap my-16 mx-4 ">
             {
                 animeList.length>0 && animeList.map((data)=>{
-                   return( <Card id = {data._id} key = {data._id} title={data.name} desc = {data.description} imgSrc = {`/images/${data.src}`} />)
+                   return( <Card type = "anime" id = {data._id} key = {data._id} title={data.name} desc = {data.description} imgSrc = {`/images/${data.src}`} />)
                 })
             }
             </div>
