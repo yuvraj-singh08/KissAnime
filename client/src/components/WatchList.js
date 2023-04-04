@@ -41,7 +41,7 @@ function WatchList() {
     <div className="flex justify-evenly flex-wrap my-16 mx-4 ">
       {
         list.length > 0 && list.map((data) => {
-          return (<Card id={data._id} key={data._id} title={data.name} desc={data.description} imgSrc={`/images/${data.src}`} />)
+          return (<Card type = "watch" id={data._id} key={data._id} title={data.name} desc={data.description} imgSrc={`/images/${data.src}`} />)
         })
       }
     </div>

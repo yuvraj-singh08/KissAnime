@@ -25,6 +25,14 @@ function Card(props) {
         <div className="content">
           <h1>{props.title}</h1>
           <p>{props.desc} </p>
+          {
+            (props.type === 'watch') &&
+            <>
+              <Link to={`/anime/${props.id}`}>
+                READ MORE
+              </Link>
+            </>
+          }
           {(props.type === "anime") &&
             <>
               <Link to={`/anime/${props.id}`}>

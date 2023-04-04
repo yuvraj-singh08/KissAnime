@@ -2,9 +2,9 @@
   text-align: center;
 }
 
-/* body{
-  background-color: black;
-} */
+body{
+  background-color: rgb(37, 37, 37);
+}
 
 .App-logo {
   height: 40vmin;

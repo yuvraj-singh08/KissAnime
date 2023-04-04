@@ -24,10 +24,10 @@ function AddCharacterForm() {
         .then((data) => console.log(data))
         .catch((error) => console.error(error));
 
-        // setName('');
-        // setDescription('');
-        // setSource('');
-        // setAnime('');
+        setName('');
+        setDescription('');
+        setSource('');
+        setAnime('');
 
     }
 

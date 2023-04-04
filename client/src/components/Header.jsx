@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [loginStatus, setLoginStatus] = useState(false);
+  const navigate = useNavigate();
+
+  function redirect() {
+    navigate('/login');
+  }
 
   useEffect(() => {
     const status = localStorage.getItem("sessionToken");
@@ -9,11 +15,15 @@ const Header = () => {
       console.log("Logged in");
       setLoginStatus(true);
     }
+    else{
+      logout();
+    }
   }, []);
 
   function logout() {
     localStorage.removeItem("sessionToken");
     setLoginStatus(false);
+    redirect();
   }
 
   return (
