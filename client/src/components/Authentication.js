@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 
+
 function Authentication() {
     const session = localStorage.getItem("sessionToken");
     const navigate = useNavigate();
@@ -43,58 +44,73 @@ function Authentication() {
     };
 
     return (
-        <div className="max-w-lg rounded-md mx-auto mt-8 border border-gray-300 shadow-md p-6">
-            <form onSubmit={handleSubmit} className="max-w-lg mx-auto mt-8">
-                <div className="mb-4">
-                    <input
+        <div>
+        <div className="flex ">
+            <img src="./images/soch.png" className="w-92 h-[400px] mt-32 ml-36"></img>
+        <div className=" bg-black mt-60 ml-92  my-32">
+       
+            
+           
+            
+            <form onSubmit={handleSubmit} className=" ">
+                <div className="   ml-96 ">
+                    <input                         
                         type="text"
                         id="name"
-                        className="w-full px-3 py-2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                        className="w-96 py-3 rounded-lg px-6 "
                         placeholder="Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
                 </div>
-                <div className="mb-4">
+                <div className="  ml-96 pt-2 ">
                     <input
                         type="email"
                         id="email"
-                        className="w-full px-3 py-2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                        className="w-96 py-3 rounded-lg px-6 "
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
-                <div className="mb-4">
+                <div className=" ml-96 pt-2 ">
                     <input
                         type="password"
                         id="password"
-                        className="w-full px-3 py-2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                        className="w-96 py-3 rounded-lg px-6 "
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                <div className="mb-4">
+                <div className="  ml-96 pt-2">
                     <input
                         type="text"
                         id="imgSource"
-                        className="w-full px-3 py-2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                        className="w-96 py-3 rounded-lg px-6 "
                         placeholder="Image Source"
                         value={imgSource}
                         onChange={(e) => setImgSource(e.target.value)}
                     />
                 </div>
-                <div>
-                    <button
+                <div className="pt-4 ml-28 rounded-lg">
+                    <button 
                         type="submit"
-                        className="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600"
+                        className="bg-indigo-500 text-white ml-96 w-40 py-1 rounded-lg hover:bg-indigo-600"
                     >
                         SighUp
                     </button>
                 </div>
             </form>
             <a href="/login">Already a user? Login</a>
+            
+        </div>
+    
+        </div>
+        
+        <div className="">
+      <p className="text-center text-white text-2xl pt-3 font-serif">“If you don't take risks, you can't create a future!”</p>
+        </div>
         </div>
     );
 }

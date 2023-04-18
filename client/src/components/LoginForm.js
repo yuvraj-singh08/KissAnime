@@ -38,34 +38,37 @@ function LoginForm() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="  ">
       {localStorage.getItem("sessionToken") ? (
         <div>
-          <p>You are logged in!</p>
+          
           <button
             onClick={handleLogout}
-            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
+            className=""
           >
             Logout
           </button>
         </div>
       ) : (
-        <form className="bg-white rounded-lg shadow-md p-8" onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="email" className="block font-medium text-gray-700 mb-2">
-              Email
+        <div className="flex my-24 ">
+           <img alt="Anime girl" src="./images/ladki.png" className=" w-[480px] h-[600px] ml-24 "></img>
+        <form className=" px-36   my-32 " onSubmit={handleSubmit}>
+          <h1 className=" font-extrabold text-3xl ml-[130px] text-red-500  ">WELCOME to KISSANIME </h1>
+          <div className="px-28 pt-10">
+            <label htmlFor="email" className="text-red-300 my-8 mr-5 focus:outline-none ">
+              Users name or Email
             </label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="border border-gray-300 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className=" py-1 text-left w-96 px-4  mt-1 border-b-4 border-red-200 rounded-xl focus:ring-red-400"
               required
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="password" className="block font-medium text-gray-700 mb-2">
+          <div className="text-red-300 my-3 mx-28  ">
+            <label htmlFor="password" className="">
               Password
             </label>
             <input
@@ -73,17 +76,19 @@ function LoginForm() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="border border-gray-300 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              required
+              className=" py-1 text-left w-96 px-4  mt-1 border-b-4 border-red-200 rounded-xl focus:ring-red-400"
             />
+         
           </div>
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
+            className="py-2 text-center text-white w-40 px-2 ml-56 mt-1 border-2 border-red-200 rounded-xl focus:ring-red-400"
           >
             Submit
           </button>
         </form>
+        </div>
+      
       )}
       {!isValid && localStorage.getItem("sessionToken") && (
         <p className="text-red-500 mt-4">Invalid email or password.</p>

@@ -1,36 +1,37 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router-dom';
-import AnimePage from './components/AnimePage';
-import AddAnimeForm from './components/AddAnimeForm';
-import AddCharacterForm from './components/AddCharacterForm';
-import LoginForm from './components/LoginForm';
 import Layout from './components/Layout';
 import Authentication from './components/Authentication';
-import WatchList from './components/WatchList';
+
+const App = lazy(() => import('./App'));
+const AnimePage = lazy(() => import('./components/AnimePage'));
+const AddAnimeForm = lazy(() => import('./components/AddAnimeForm'));
+const AddCharacterForm = lazy(() => import('./components/AddCharacterForm'));
+const LoginForm = lazy(() => import('./components/LoginForm'));
+const WatchList = lazy(() => import('./components/WatchList'));
 
 const router = createBrowserRouter([
   {
     path: '/home',
-    element: <Layout><App /></Layout>
+    element: <Layout><Suspense fallback={<div>Loading...</div>}><App /></Suspense></Layout>
   },
   {
     path: '/anime/:animeId',
-    element: <Layout><AnimePage /></Layout>
+    element: <Layout><Suspense fallback={<div>Loading...</div>}><AnimePage /></Suspense></Layout>
   },
   {
     path: '/anime/add',
-    element: <Layout><AddAnimeForm /></Layout>
+    element: <Layout><Suspense fallback={<div>Loading...</div>}><AddAnimeForm /></Suspense></Layout>
   },
   {
     path: '/characters/add',
-    element: <Layout><AddCharacterForm /></Layout>
+    element: <Layout><Suspense fallback={<div>Loading...</div>}><AddCharacterForm /></Suspense></Layout>
   },
   {
     path: '/login',
-    element: <LoginForm />
+    element: <Suspense fallback={<div>Loading...</div>}><LoginForm /></Suspense>
   },
   {
     path: '/',
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
   },
   {
     path:'/user/watchList',
-    element: <Layout><WatchList/></Layout>
+    element: <Layout><Suspense fallback={<div>Loading...</div>}><WatchList/></Suspense></Layout>
   }
 ])
 
