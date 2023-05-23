@@ -1,6 +1,22 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-body{
-    background-color: rgb(37, 37, 37);
-  }
+
+body {
+  background-color: rgb(37, 37, 37);
+}
+
+#notification {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+#notification.hidden {
+  transform: translateY(200%);
+}

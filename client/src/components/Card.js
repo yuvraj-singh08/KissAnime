@@ -1,6 +1,7 @@
 import React from "react";
 import "./Card.css"
 import { Link } from "react-router-dom";
+import { showNotification } from "../functions/functions";
 
 function Card(props) {
   const id = localStorage.getItem('id');
@@ -16,6 +17,9 @@ function Card(props) {
     });
     const data = await response.json();
     console.log(data);
+    if(data.message){
+      showNotification("Successfully added to watch list");
+    }
   }
   // console.log(props)
   return (
