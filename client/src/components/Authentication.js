@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import './css/SignUp.css'
 
 
 function Authentication() {
@@ -45,72 +46,63 @@ function Authentication() {
 
     return (
         <div>
-        <div className="flex ">
-            <img src="./images/soch.png" className="w-92 h-[400px] mt-32 ml-36"></img>
-        <div className=" bg-black mt-60 ml-92  my-32">
-       
-            
-           
-            
-            <form onSubmit={handleSubmit} className=" ">
-                <div className="   ml-96 ">
-                    <input                         
+            <div className="signup-container">
+                <img src="./images/soch.png" className="image child"></img>
+
+
+
+
+                <form onSubmit={handleSubmit} className="form child">
+                    <h1 class="heading">Sign Up</h1>
+
+                    <input
                         type="text"
                         id="name"
-                        className="w-96 py-3 rounded-lg px-6 "
+                        className="form-action textfield"
                         placeholder="Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
-                </div>
-                <div className="  ml-96 pt-2 ">
                     <input
                         type="email"
                         id="email"
-                        className="w-96 py-3 rounded-lg px-6 "
+                        className="form-action textfield "
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                </div>
-                <div className=" ml-96 pt-2 ">
                     <input
                         type="password"
                         id="password"
-                        className="w-96 py-3 rounded-lg px-6 "
+                        className="form-action textfield"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                </div>
-                <div className="  ml-96 pt-2">
                     <input
                         type="text"
                         id="imgSource"
-                        className="w-96 py-3 rounded-lg px-6 "
+                        className="form-action textfield"
                         placeholder="Image Source"
                         value={imgSource}
                         onChange={(e) => setImgSource(e.target.value)}
                     />
-                </div>
-                <div className="pt-4 ml-28 rounded-lg">
-                    <button 
+                    <button
                         type="submit"
-                        className="bg-indigo-500 text-white ml-96 w-40 py-1 rounded-lg hover:bg-indigo-600"
+                        className="form-action button "
                     >
                         SighUp
                     </button>
-                </div>
-            </form>
-            <a href="/login">Already a user? Login</a>
-            
-        </div>
-    
-        </div>
-        
-        <div className="">
-      <p className="text-center text-white text-2xl pt-3 font-serif">“If you don't take risks, you can't create a future!”</p>
-        </div>
+                    <a className="form-action link" href="/login">Already a user? Login</a>
+                </form>
+
+
+
+            </div>
+
+            <div className="">
+                <p className="text-center text-white text-2xl pt-3 font-serif">“If you don't take risks, you can't create a future!”</p>
+            </div>
         </div>
     );
 }

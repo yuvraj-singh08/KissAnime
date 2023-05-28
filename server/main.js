@@ -1,29 +1,28 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+require('dotenv').config();
 const { addAnime, getAnime, getAllCharactersByAnimeId, addCharacter, addUser, isRegistered, addToWatchList, getWatchList } = require('./functions');
 
-db_connect().catch((err) => { console.log(err); });
+// db_connect().catch((err) => { console.log(err); });
 
-async function db_connect() {
-    await mongoose.connect(`mongodb://localhost:27017/kissanime`);
+// async function db_connect() {
+//     await mongoose.connect(`mongodb://localhost:27017/kissanime`);
 
-    console.log("Database connected");
+//     console.log("Database connected");
 
 
 
-}
+// }
 
-// mongoose.connect('mongodb+srv://kissanime:adminuse@clusteranime.okv5bh4.mongodb.net/?retryWrites=true&w=majority', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// })
-// .then(() => {
-//   console.log('Connected to MongoDB Atlas');
-// })
-// .catch((error) => {
-//   console.error('Error connecting to MongoDB Atlas:', error);
-// });
+
+mongoose.connect(process.env.uri)
+.then(() => {
+    console.log("Database Connected");
+})
+.catch((err) => {
+    console.log('Error connecting to MongoDB: ', err);
+})
 
 
 const app = express();
