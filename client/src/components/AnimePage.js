@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
+import CharCard from './CharCard';
 import AnimeInfo from './AnimeInfo';
 import { useParams } from 'react-router-dom';
 
@@ -33,11 +34,11 @@ function AnimePage(props) {
       <AnimeInfo name = {anime.name} description = {anime.para} imageSrc = {`/images/${anime.src}`}  />
       <div className="flex justify-evenly flex-wrap my-16 mx-4 ">
         {characters.length>0 && characters.map((character) => (
-          <Card
+          <CharCard
             key={character._id}
-            title={character.name}
+            heading={character.name}
             desc={character.description}
-            imgSrc={`/images/${character.src}`}
+            src={`/images/${character.src}`}
           />
         ))}
       </div>

@@ -2,6 +2,10 @@ import React from 'react';
 import Card from './components/Card';
 import { useEffect,useState } from 'react';
 import './App.css'
+import Front from './components/Front';
+import About from './components/About';
+import Quote from './components/Quote';
+import Footer from './components/Footer';
 
 function App(){
     const [animeList, setAnimeList] = useState([]);
@@ -22,6 +26,7 @@ function App(){
     
     return(
         <>
+            <Front />
              <div className="flex justify-evenly flex-wrap my-16 mx-4 ">
             {
                 animeList.length>0 && animeList.map((data)=>{
@@ -29,7 +34,10 @@ function App(){
                 })
             }
             </div>
-            
+            <Footer />
+
+            <About />
+            <Quote />
         </>
     );
 }
