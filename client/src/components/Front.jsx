@@ -36,7 +36,7 @@ const Front = () => {
             </p>
             </div>
             <div className='text-center pl-3 mt-4 '>
-                <input className='  px-4 rounded-2xl pl-[2px] md:w-72 lg:w-96 lg:py-1 lg:pl-3 text-black  mx-[-26px]' type="search" placeholder='seach your anime here'/>
+                <input className='  px-24 rounded-2xl pl-[2px] md:w-72 lg:w-96 lg:py-1 lg:pl-3 text-black  mx-[-26px]' type="search" placeholder='Search your anime here'/>
                 <a href="#"><i className="fa-solid fa-magnifying-glass text-black "></i></a>
 
             

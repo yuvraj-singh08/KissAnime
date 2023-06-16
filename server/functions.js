@@ -43,7 +43,7 @@ async function addCharacter(name, description, source, Anime) {
     catch (err) {
         console.log(err);
     }
-}
+} 
 
 async function getAnime(query, projection) {
 
