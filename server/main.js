@@ -36,9 +36,6 @@ app.get('/api/anime/:animeId', async (req, res) => {
 })
 
 app.get('/api/allAnime', (req, res) => {
-    const uri = 'mongodb://localhost:27017';
-    const databaseName = 'kissanime';
-    const collectionName = 'animes';
     const projection = { name: 1, description: 1, src: 1, _id: 1 };
 
     getAnime({}, projection)

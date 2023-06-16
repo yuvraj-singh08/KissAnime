@@ -42,7 +42,7 @@ function Card(props) {
               <Link to={`/anime/${props.id}`}>
                 READ MORE
               </Link>
-              <button className="bg-white  text-black rounded-md px-2 py-2 m-2" onClick={addToWatchList}>+WatchList</button>
+              <button className="bg-white  text-black rounded-md px-1 py-1 m-2 " onClick={addToWatchList}>+WatchList</button>
             </>
           }
 

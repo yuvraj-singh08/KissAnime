@@ -81,15 +81,15 @@
   .card .content a {
     position: relative;
     color: rgb(18, 17, 17);
-    padding: 4px 9px;
-    padding-top: 1px;
-    border-radius: 10px;
+    padding: 0px 7px;
+    padding-top: 3px;
+    border-radius: 5px;
     background: #fff;
     color: #111;
-    margin-top: 10px;
+    margin-top: 7px;
     display: inline-block;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 500;
     transition: 0.5s;
-  }
+}
   
