@@ -2,9 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-body {
-  background-color: rgb(37, 37, 37);
-}
+
 
 #notification {
   position: fixed;
@@ -20,3 +18,10 @@ body {
 #notification.hidden {
   transform: translateY(200%);
 }
+html, body {
+  height: 100%;
+  background-color:#181818;
+  font-family: 'Poppins', sans-serif;
+  
+}
+
