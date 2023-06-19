@@ -5,7 +5,7 @@ function LoginForm() {
   const navigate = useNavigate(); // initialize the useNavigate hook
   const session = localStorage.getItem("sessionToken");
   useEffect(() => {
-    if (session == "myToken") {
+    if (session === "myToken") {
       navigate('/home');
       console.log("MKC navigate nahi hua");
     }
