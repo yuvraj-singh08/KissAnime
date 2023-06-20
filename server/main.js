@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const { addAnime, getAnime, getAllCharactersByAnimeId, addCharacter, addUser, isRegistered, addToWatchList, getWatchList } = require('./functions');
 const { addComment } = require('./functions/addComment');
+const { getUser } = require('./functions/getUser')
 
 // db_connect().catch((err) => { console.log(err); });
 
@@ -134,5 +135,7 @@ app.post('/api/user/getWatchList', async (req, res) => {
 });
 
 app.post('/api/addComment', addComment);
+
+app.post('/api/getUser', getUser);
 
 app.listen(3001);
