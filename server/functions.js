@@ -141,9 +141,7 @@ async function getWatchList(id) {
     }
 }
 
-async function addComment(comment,anime,user){
-    
-}
+
 
 module.exports = {
     addAnime, getAnime, getAllCharactersByAnimeId, addCharacter, addUser, isRegistered, addToWatchList, getWatchList

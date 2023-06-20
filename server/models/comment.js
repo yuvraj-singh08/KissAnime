@@ -12,9 +12,10 @@ const commentSchema = mongoose.Schema({
     anime:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Anime'
-    }
+    },
+    timestamp: { type: Date, default: Date.now }
 });
 
-const comment = mongoose.model('Comment',commentSchema);
+const Comment = mongoose.model('Comment',commentSchema);
 
-module.exports = comment;
+module.exports = Comment;

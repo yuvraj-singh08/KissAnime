@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const { addAnime, getAnime, getAllCharactersByAnimeId, addCharacter, addUser, isRegistered, addToWatchList, getWatchList } = require('./functions');
+const { addComment } = require('./functions/addComment');
 
 // db_connect().catch((err) => { console.log(err); });
 
@@ -130,6 +131,8 @@ app.post('/api/user/getWatchList', async (req, res) => {
         console.error(err);
         res.status(500).json({ message: 'Internal Server Error' });
     }
-})
+});
+
+app.post('/api/addComment', addComment);
 
 app.listen(3001);
