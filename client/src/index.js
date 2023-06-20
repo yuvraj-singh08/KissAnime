@@ -41,10 +41,6 @@ const router = createBrowserRouter([
   {
     path:'/user/watchList',
     element: <Layout><Suspense fallback={<div>Loading...</div>}><WatchList/></Suspense></Layout>
-  },
-  {
-    path:'/anime/comments',
-    element: <Reviews />
   }
 ])
 

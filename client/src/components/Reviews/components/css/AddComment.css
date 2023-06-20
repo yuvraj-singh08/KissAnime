@@ -1,0 +1,13 @@
+.input-container{
+    display: flex;
+    /* justify-content: center  ; */
+    align-items: center;
+    width: 100%;
+}
+
+.comment-input{
+    width: 100%;
+    background: transparent;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #b5b5b5;
+}

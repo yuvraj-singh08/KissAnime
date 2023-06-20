@@ -1,6 +1,7 @@
 import Comment from './components/Comment';
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
+import AddComment from './components/AddComment';
 
 function Reviews() {
 
@@ -29,13 +30,16 @@ function Reviews() {
     }, []);
 
     return (
-        <div className="comments-container">
-            {
-                comment.length > 0 && comment.map((data) => {
-                    return <Comment key={data._id} comment={data.comment} userId={data.user} />
-                })
-            }
-        </div>
+        <>
+            <div className="comments-container">
+            <AddComment />
+                {
+                    comment.length > 0 && comment.map((data) => {
+                        return <Comment key={data._id} comment={data.comment} userId={data.user} />
+                    })
+                }
+            </div>
+        </>
     )
 }
 
