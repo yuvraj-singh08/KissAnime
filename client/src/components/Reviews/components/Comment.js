@@ -12,7 +12,7 @@ function Comment(props) {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    _id: '64734c0515629a95a167bd83'
+                    _id: props.userId
                 }),
             };
 
