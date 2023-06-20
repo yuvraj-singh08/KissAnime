@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const { addAnime, getAnime, getAllCharactersByAnimeId, addCharacter, addUser, isRegistered, addToWatchList, getWatchList } = require('./functions');
 const { addComment } = require('./functions/addComment');
-const { getUser } = require('./functions/getUser')
+const { getUser } = require('./functions/getUser');
+const { getComment } = require('./functions/getComment');
 
 // db_connect().catch((err) => { console.log(err); });
 
@@ -19,12 +20,12 @@ const { getUser } = require('./functions/getUser')
 
 
 mongoose.connect(process.env.uri)
-.then(() => {
-    console.log("Database Connected");
-})
-.catch((err) => {
-    console.log('Error connecting to MongoDB: ', err);
-})
+    .then(() => {
+        console.log("Database Connected");
+    })
+    .catch((err) => {
+        console.log('Error connecting to MongoDB: ', err);
+    })
 
 
 const app = express();
@@ -93,8 +94,8 @@ app.post('/api/user/validate', async (req, res) => {
 
     try {
         const response = await isRegistered(email, password);
-        if (response.length>0) {
-            res.status(200).json({ message: 'true',_id:response[0]._id });
+        if (response.length > 0) {
+            res.status(200).json({ message: 'true', _id: response[0]._id });
         }
         else {
             res.status(200).json({ message: 'false' });
@@ -105,10 +106,10 @@ app.post('/api/user/validate', async (req, res) => {
     }
 });
 
-app.post('/api/user/addWatchList',  (req, res) => {
+app.post('/api/user/addWatchList', (req, res) => {
     const { id, anime } = req.body;
     try {
-        const response =  addToWatchList(id, anime);
+        const response = addToWatchList(id, anime);
         if (response) {
             res.status(200).json({ message: 'true' });
         }
@@ -125,7 +126,7 @@ app.post('/api/user/getWatchList', async (req, res) => {
     const { id } = req.body;
     try {
         const response = await getWatchList(id);
-        res.status(200).json({response});
+        res.status(200).json({ response });
 
 
     } catch (err) {
@@ -135,7 +136,7 @@ app.post('/api/user/getWatchList', async (req, res) => {
 });
 
 app.post('/api/addComment', addComment);
-
 app.post('/api/getUser', getUser);
+app.get('/api/getComment/:animeId', getComment);
 
 app.listen(3001);
