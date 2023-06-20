@@ -4,8 +4,33 @@ import { useParams } from 'react-router-dom';
 
 function AddComment() {
     const [comment, setComment] = useState('');
-    const [user, setUser] = useState();
+    const [user, setUser] = useState('');
     const { animeId } = useParams();
+
+    useEffect(() => {
+        async function getComments() {
+            const request = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    _id: localStorage.getItem('id')
+                }),
+            };
+
+            await fetch("http://localhost:3001/api/getUser", request)
+                .then(response => response.json())
+                .then((data) => {
+                    setUser(data[0]);
+                    console.log(data);
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+        }
+        getComments();
+    }, []);
 
     function addComment(e) {
         e.preventDefault();
@@ -25,6 +50,9 @@ function AddComment() {
         .then(response => response.json())
         .then((data) => {
             console.log(data);
+            if(data.status === 'success') {
+                //Update Comments
+            }
         })
         .catch((err) => {
             console.error(err);
@@ -37,7 +65,7 @@ function AddComment() {
     return <>
         <div className="comment">
             <div class="circle-container">
-                <img src={`/images/yuvraj.jpg`} alt="Image" class="circle-image" />
+                <img src={`/images/${user.imgSource}`} alt="Image" class="circle-image" />
             </div>
             <div className='input-container'>
                 <input type='text' placeholder='Add a comment...' value={comment} onChange={handleChange} className='comment-input'></input>
