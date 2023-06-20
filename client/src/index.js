@@ -11,6 +11,7 @@ const AddAnimeForm = lazy(() => import('./components/AddAnimeForm'));
 const AddCharacterForm = lazy(() => import('./components/AddCharacterForm'));
 const LoginForm = lazy(() => import('./components/LoginForm'));
 const WatchList = lazy(() => import('./components/WatchList'));
+const Reviews = lazy(() => import('./components/Reviews/Reviews.js'));
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path:'/user/watchList',
     element: <Layout><Suspense fallback={<div>Loading...</div>}><WatchList/></Suspense></Layout>
+  },
+  {
+    path:'/anime/comments',
+    element: <Reviews />
   }
 ])
 

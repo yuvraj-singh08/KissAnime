@@ -3,6 +3,7 @@ import Card from './Card';
 import CharCard from './CharCard';
 import AnimeInfo from './AnimeInfo';
 import { useParams } from 'react-router-dom';
+import Reviews from './Reviews/Reviews';
 
 function AnimePage(props) {
   const { animeId } = useParams();
@@ -31,9 +32,9 @@ function AnimePage(props) {
 
   return (
     <>
-      <AnimeInfo name = {anime.name} description = {anime.para} imageSrc = {`/images/${anime.src}`}  />
+      <AnimeInfo name={anime.name} description={anime.para} imageSrc={`/images/${anime.src}`} />
       <div className="flex justify-evenly flex-wrap my-16 mx-4 ">
-        {characters.length>0 && characters.map((character) => (
+        {characters.length > 0 && characters.map((character) => (
           <CharCard
             key={character._id}
             heading={character.name}
@@ -42,6 +43,7 @@ function AnimePage(props) {
           />
         ))}
       </div>
+      <Reviews />
     </>
   );
 }

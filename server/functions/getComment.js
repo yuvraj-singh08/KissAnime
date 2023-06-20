@@ -1,7 +1,7 @@
 const Comment = require('../models/comment.js');
 
 async function getComment(req, res) {
-    const animeId = req.params.animeId;
+    const animeId = req.body.animeId;
     console.log(animeId);
     try {
         const result = await Comment.find({anime: animeId});

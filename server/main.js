@@ -137,6 +137,6 @@ app.post('/api/user/getWatchList', async (req, res) => {
 
 app.post('/api/addComment', addComment);
 app.post('/api/getUser', getUser);
-app.get('/api/getComment/:animeId', getComment);
+app.post('/api/getComment', getComment);
 
 app.listen(3001);
