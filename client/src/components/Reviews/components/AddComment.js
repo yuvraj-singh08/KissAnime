@@ -4,7 +4,10 @@ import { useParams } from 'react-router-dom';
 
 function AddComment() {
     const [comment, setComment] = useState('');
-    const [user, setUser] = useState('');
+    const [user, setUser] = useState({
+        name: "Unknown User",
+        imgSource:"No Image Source",
+    });
     const { animeId } = useParams();
 
     useEffect(() => {
