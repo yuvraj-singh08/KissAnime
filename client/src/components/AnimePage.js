@@ -12,7 +12,7 @@ function AnimePage(props) {
   const [anime, setAnime] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/anime/${animeId}`)
+    fetch(`${process.env.REACT_APP_API_URL}/api/anime/${animeId}`)
       .then((res => res.json()))
       .then((data) => {
         setAnime(data[0]);
@@ -21,7 +21,7 @@ function AnimePage(props) {
   }, [animeId]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/anime/${animeId}/characters`)
+    fetch(`${process.env.REACT_APP_API_URL}/api/anime/${animeId}/characters`)
       .then((res) => res.json())
       .then((data) => {
         setCharacters(data);

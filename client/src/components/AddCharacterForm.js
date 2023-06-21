@@ -15,7 +15,7 @@ function AddCharacterForm() {
             anime: anime
         }
         
-        fetch('http://localhost:3001/characters/add',{
+        fetch(`${process.env.REACT_APP_API_URL}/characters/add`,{
             method: 'POST',
             headers: { 'Content-Type':'application/json' },
             body: JSON.stringify(data)

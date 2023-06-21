@@ -16,7 +16,7 @@ function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3001/api/user/validate", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/validate`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

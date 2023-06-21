@@ -139,4 +139,11 @@ app.post('/api/addComment', addComment);
 app.post('/api/getUser', getUser);
 app.post('/api/getComment', getComment);
 
-app.listen(3001);
+app.listen(process.env.port,(err, res) => {
+    if(err){
+        console.log(err);
+    }
+    else{
+        console.log("Server is up and running")
+    }
+});

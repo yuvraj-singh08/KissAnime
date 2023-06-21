@@ -8,7 +8,7 @@ function Card(props) {
   const anime = props.id
   async function addToWatchList(e) {
     e.preventDefault();
-    const response = await fetch("http://localhost:3001/api/user/addWatchList", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/addWatchList`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

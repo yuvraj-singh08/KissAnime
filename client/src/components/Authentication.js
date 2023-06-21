@@ -20,7 +20,7 @@ function Authentication() {
     async function addUser(name, email, password, imgSource) {
         const user = { name, email, password, imgSource };
         try {
-            const response = await fetch("http://localhost:3001/api/user/add", {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/add`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

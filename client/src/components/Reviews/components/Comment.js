@@ -16,7 +16,7 @@ function Comment(props) {
                 }),
             };
 
-            await fetch("http://localhost:3001/api/getUser", request)
+            await fetch(`${process.env.REACT_APP_API_URL}/api/getUser`, request)
                 .then(response => response.json())
                 .then((data) => {
                     setUser(data);

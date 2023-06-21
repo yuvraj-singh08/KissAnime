@@ -19,7 +19,7 @@ function AddComment() {
                 }),
             };
 
-            await fetch("http://localhost:3001/api/getUser", request)
+            await fetch(`${process.env.REACT_APP_API_URL}/api/getUser`, request)
                 .then(response => response.json())
                 .then((data) => {
                     setUser(data[0]);
@@ -46,17 +46,17 @@ function AddComment() {
             },
             body: JSON.stringify(reqData),
         }
-        fetch('http://localhost:3001/api/addComment',request)
-        .then(response => response.json())
-        .then((data) => {
-            console.log(data);
-            if(data.status === 'success') {
-                //Update Comments
-            }
-        })
-        .catch((err) => {
-            console.error(err);
-        });
+        fetch(`${process.env.REACT_APP_API_URL}/api/addComment`, request)
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                if (data.status === 'success') {
+                    //Update Comments
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+            });
     }
 
     function handleChange(e) {

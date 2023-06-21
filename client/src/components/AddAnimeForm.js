@@ -15,7 +15,7 @@ function AddAnimeForm() {
             para: para
         }
         
-        fetch('http://localhost:3001/anime/add',{
+        fetch(`${process.env.REACT_APP_API_URL}/anime/add`,{
             method: 'POST',
             headers: { 'Content-Type':'application/json' },
             body: JSON.stringify(data)

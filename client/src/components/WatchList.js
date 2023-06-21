@@ -22,7 +22,7 @@ function WatchList() {
   useEffect(() => {
 
     async function getList() {
-      const response = await fetch("http://localhost:3001/api/user/getWatchList", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/getWatchList`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

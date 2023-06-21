@@ -18,7 +18,7 @@ function Reviews() {
             }),
         };
 
-        fetch(`http://localhost:3001/api/getComment`, request)
+        fetch(`${process.env.REACT_APP_API_URL}/api/getComment`, request)
             .then(response => response.json())
             .then((data) => {
                 setComment(data);
