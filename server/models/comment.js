@@ -13,7 +13,7 @@ const CommentSchema = mongoose.Schema({
     anime:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'anime',
-        required:true
+        required:true   
     },
     timestamp: { type: Date, default: Date.now }
 });
